@@ -1,6 +1,6 @@
 {
-  "name": "ionic-hello-world",
-  "author": "Ionic Framework",
+  "name": "mixtapes",
+  "author": "Dave Maynard",
   "homepage": "http://ionicframework.com/",
   "private": true,
   "scripts": {
@@ -33,6 +33,7 @@
     "@ionic/app-scripts": "^0.0.36",
     "typescript": "^2.0.3"
   },
+  "description": "Mixtapes: An Ionic project",
   "cordovaPlugins": [
     "cordova-plugin-device",
     "cordova-plugin-console",
@@ -41,13 +42,5 @@
     "cordova-plugin-statusbar",
     "ionic-plugin-keyboard"
   ],
-  "cordovaPlatforms": [
-    "ios",
-    {
-      "platform": "ios",
-      "version": "",
-      "locator": "ios"
-    }
-  ],
-  "description": "Mixtapes: An Ionic project"
+  "cordovaPlatforms": []
 }

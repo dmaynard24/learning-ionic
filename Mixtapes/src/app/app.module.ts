@@ -1,30 +1,39 @@
 import { NgModule } from '@angular/core';
 import { IonicApp, IonicModule } from 'ionic-angular';
-import { MyApp } from './app.component';
-import { AboutPage } from '../pages/about/about';
-import { ContactPage } from '../pages/contact/contact';
+
+import { MixtapesApp } from './app.component';
+
 import { HomePage } from '../pages/home/home';
+import { MixtapesPage } from '../pages/mixtapes/mixtapes';
+import { SearchPage } from '../pages/search/search';
+import { ArtistsPage } from '../pages/artists/artists';
+import { SongsPage } from '../pages/songs/songs';
+
 import { TabsPage } from '../pages/tabs/tabs';
 
 @NgModule({
-  declarations: [
-    MyApp,
-    AboutPage,
-    ContactPage,
-    HomePage,
-    TabsPage
-  ],
-  imports: [
-    IonicModule.forRoot(MyApp)
-  ],
-  bootstrap: [IonicApp],
-  entryComponents: [
-    MyApp,
-    AboutPage,
-    ContactPage,
-    HomePage,
-    TabsPage
-  ],
-  providers: []
+    declarations: [
+        MixtapesApp,
+        HomePage,
+        MixtapesPage,
+        SearchPage,
+        ArtistsPage,
+        SongsPage,
+        TabsPage
+    ],
+    imports: [
+        IonicModule.forRoot(MixtapesApp)
+    ],
+    bootstrap: [IonicApp],
+    entryComponents: [
+        MixtapesApp,
+        HomePage,
+        MixtapesPage,
+        SearchPage,
+        ArtistsPage,
+        SongsPage,
+        TabsPage
+    ],
+    providers: []
 })
 export class AppModule {}
