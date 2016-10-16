@@ -4,6 +4,23 @@
     </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-    <h2>Mixtapes page!</h2>
+<ion-content *ngIf="hasMixtapes">
+    <ion-card *ngFor="let mixtape of mixtapes" (click)="onNavigateToMixtape(mixtape)">
+        <img src="{{mixtape.artwork}}" />
+        <ion-card-content>
+            <ion-card-title>{{mixtape.title}}</ion-card-title>
+            <p>
+                {{mixtape.artist}}
+            </p>
+        </ion-card-content>
+    </ion-card>
+    <!--<ion-card (click)="onNavigateToMixtape()">
+        <img src="../assets/data/A$AP Rocky/Live.Love.A$AP/front.jpg" />
+        <ion-card-content>
+            <ion-card-title>Live.Love.A$AP</ion-card-title>
+            <p>
+                A$AP Rocky
+            </p>
+        </ion-card-content>
+    </ion-card>-->
 </ion-content>
