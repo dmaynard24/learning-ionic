@@ -3,7 +3,6 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 
 import { DataService } from '../../services/data.service';
-
 import { Mixtape } from '../../objects/mixtape';
 import { MixtapePage } from './mixtape/mixtape';
 

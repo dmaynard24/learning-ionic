@@ -7,4 +7,12 @@
 <ion-content>
     <img src="{{mixtape.artwork}}" />
     <p padding>{{mixtape.artist}}</p>
+    <ion-list>
+        <ion-item *ngFor="let song of songs; let i = index" (click)="togglePlay(i, $event)">
+            <audio id="{{i}}">
+                <source src="../assets/data/Wiz Khalifa/Cabin Fever/{{song.audio}}" type="audio/mpeg" />
+            </audio>
+            {{i + 1}}. {{song.title}}
+        </ion-item>
+    </ion-list>
 </ion-content>
