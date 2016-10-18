@@ -9,10 +9,12 @@
     <p padding>{{mixtape.artist}}</p>
     <ion-list>
         <ion-item *ngFor="let song of songs; let i = index" (click)="togglePlay(i, $event)">
-            <audio id="{{i}}">
+            <!--<audio id="{{i}}" preload="auto" volume="0.5">-->
+            <audio id="{{i}}" preload="auto">
                 <source src="../assets/data/Wiz Khalifa/Cabin Fever/{{song.audio}}" type="audio/mpeg" />
             </audio>
-            {{i + 1}}. {{song.title}}
+            <!--{{i + 1}}. {{song.title}}-->
+            {{song.title}}
         </ion-item>
     </ion-list>
 </ion-content>

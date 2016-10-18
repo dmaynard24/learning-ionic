@@ -21,11 +21,16 @@ export class MixtapePage {
 
     ngOnInit() {
         this.getSongs();
-        this.hasSongs = true;
     }
 
     getSongs() {
-        this.songs = this.dataService.getSongs();
+        let allSongs: Song[] = this.dataService.getSongs();
+        allSongs.forEach(song => {
+            if (song.mixtapeId === this.mixtape.id) {
+                this.songs.push(song);
+            }
+        })
+        this.hasSongs = true;
     }
 
     togglePlay(index: number) {

@@ -10,7 +10,7 @@ export class Song {
     mixtapeId: string;
 
     // calculated
-    seconds: number;
+    duration: number;
     isPlaying: boolean = false;
 
     constructor(_id: string, _title: string, _artist: string, _audio: string, _artwork?: string, _mixtapeId?: string) {

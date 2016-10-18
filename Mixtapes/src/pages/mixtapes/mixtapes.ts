@@ -22,7 +22,6 @@ export class MixtapesPage {
     }
 
     onNavigateToMixtape(_mixtape: Mixtape) {
-        console.log(_mixtape);
         this.navController.push(MixtapePage, {
             mixtape: _mixtape
         });
