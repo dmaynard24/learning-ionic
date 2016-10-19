@@ -12,11 +12,12 @@ import { DataService } from '../services/data.service';
 export class MixtapesApp {
     rootPage = TabsPage;
 
-    constructor(platform: Platform) {
+    constructor(platform: Platform, private dataService: DataService) {
         platform.ready().then(() => {
             // Okay, so the platform is ready and our plugins are available.
             // Here you can do any higher level native things you might need.
             StatusBar.styleDefault();
         });
+        // this.globalSong = this.dataService.getGlobalSong();
     }
 }

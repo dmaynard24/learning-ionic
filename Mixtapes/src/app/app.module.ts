@@ -24,7 +24,9 @@ import { TabsPage } from '../pages/tabs/tabs';
         TabsPage
     ],
     imports: [
-        IonicModule.forRoot(MixtapesApp)
+        IonicModule.forRoot(MixtapesApp, {}, {
+            links: []
+        })
     ],
     bootstrap: [IonicApp],
     entryComponents: [

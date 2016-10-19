@@ -1,5 +1,5 @@
 <ion-header>
-    <ion-navbar>
+    <ion-navbar color="dark">
         <ion-title>{{mixtape.title}}</ion-title>
     </ion-navbar>
 </ion-header>
@@ -7,12 +7,12 @@
 <ion-content>
     <img src="{{mixtape.artwork}}" />
     <p padding>{{mixtape.artist}}</p>
-    <ion-list>
-        <ion-item *ngFor="let song of songs; let i = index" (click)="togglePlay(i, $event)">
+    <ion-list id="song-list">
+        <ion-item *ngFor="let song of songs; let i = index" (click)="playSong(song)">
             <!--<audio id="{{i}}" preload="auto" volume="0.5">-->
-            <audio id="{{i}}" preload="auto">
+            <!--<audio id="{{i}}" preload="auto">
                 <source src="../assets/data/Wiz Khalifa/Cabin Fever/{{song.audio}}" type="audio/mpeg" />
-            </audio>
+            </audio>-->
             <!--{{i + 1}}. {{song.title}}-->
             {{song.title}}
         </ion-item>

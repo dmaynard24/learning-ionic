@@ -5,10 +5,15 @@ import { Song } from '../objects/song';
 
 @Injectable()
 export class DataService {
+    globalSong: Song;
+    globalAudio = new Audio();
+
     mixtapes: Mixtape[] = [];
     songs: Song[] = [];
     
     constructor() {
+        this.globalAudio.preload = 'true';
+
         // let tape0 = new Mixtape('0', '../assets/data/A$AP Rocky/Live.Love.A$AP/front.jpg', 'Live.Love.A$AP', 'A$AP Rocky');
         let tape1 = new Mixtape('1', '../assets/data/Wiz Khalifa/Cabin Fever/front.jpg', 'Cabin Fever', 'Wiz Khalifa');
         let tape2 = new Mixtape('2', '../assets/data/Wiz Khalifa/Kush & OJ/front.jpg', 'Kush & OJ', 'Wiz Khalifa');
@@ -53,5 +58,19 @@ export class DataService {
 
     getSongs(): Song[] {
         return this.songs;
+    }
+
+    setGlobalSong(_song: Song): void {
+        this.globalSong = _song;
+        this.globalAudio.src = '../assets/data/Wiz Khalifa/Cabin Fever/' + _song.audio;
+        this.globalAudio.currentTime = 0;
+    }
+
+    playGlobalSong(): void {
+        this.globalAudio.play();
+    }
+
+    pauseGlobalSong(): void {
+        this.globalAudio.pause();
     }
 }
