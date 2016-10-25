@@ -5,7 +5,8 @@
 </ion-header>
 
 <ion-content>
-    <img src="{{mixtape.artwork}}" />
+    <ion-img src="{{mixtape.artwork}}"></ion-img>
+    <!--<img src="{{mixtape.artwork}}" />-->
     <p padding>{{mixtape.artist}}</p>
     <ion-list id="song-list">
         <ion-item *ngFor="let song of songs; let i = index" (click)="playSong(song)">

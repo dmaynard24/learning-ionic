@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 
 import { DataService } from '../../services/data.service';
+import { AudioService } from '../../services/audio.service';
 import { Mixtape } from '../../objects/mixtape';
 import { Song } from '../../objects/song';
 import { MixtapePage } from '../mixtapes/mixtape/mixtape';
@@ -18,7 +19,7 @@ export class SearchPage {
     mixtapes: Mixtape[];
     hasMixtapes: boolean = false;
 
-    constructor(public navController: NavController, private dataService: DataService) {
+    constructor(public navController: NavController, private dataService: DataService, private audioService: AudioService) {
         this.initializeMixtapes();
         this.initializeSongs();
     }
@@ -56,7 +57,7 @@ export class SearchPage {
     }
 
     playSong(_song: Song) {
-        this.dataService.setGlobalSong(_song);
-        this.dataService.playGlobalSong();
+        this.audioService.setGlobalSong(_song);
+        this.audioService.playGlobalSong();
     }
 }

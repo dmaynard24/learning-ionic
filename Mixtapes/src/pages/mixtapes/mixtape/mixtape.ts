@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
 import { DataService } from '../../../services/data.service';
+import { AudioService } from '../../../services/audio.service';
 import { Mixtape } from '../../../objects/mixtape';
 import { Song } from '../../../objects/song';
 
@@ -15,7 +16,10 @@ export class MixtapePage {
     songs: Song[] = [];
     hasSongs: boolean = false;
 
-    constructor(public navController: NavController, private navParams: NavParams, private dataService: DataService) {
+    constructor(public navController: NavController, 
+                private navParams: NavParams, 
+                private dataService: DataService, 
+                private audioService: AudioService) {
         this.mixtape = navParams.get('mixtape');
     }
 
@@ -34,8 +38,8 @@ export class MixtapePage {
     }
 
     playSong(_song: Song) {
-        this.dataService.setGlobalSong(_song);
-        this.dataService.playGlobalSong();
+        this.audioService.setGlobalSong(_song);
+        this.audioService.playGlobalSong();
     }
 
     // togglePlay(index: number) {

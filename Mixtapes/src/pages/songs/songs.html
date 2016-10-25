@@ -4,6 +4,14 @@
     </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-    <h2>Songs page!</h2>
+<ion-content>
+    <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+    <ion-list>
+        <ion-item *ngFor="let song of songs" (click)="playSong(song)">
+            <div class="ellipsis">
+                {{ song.title }}
+                <div><small>{{ song.artist }} &bull; {{ song.mixtapeTitle }}</small></div>
+            </div>
+        </ion-item>
+    </ion-list>
 </ion-content>

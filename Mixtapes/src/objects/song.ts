@@ -8,6 +8,7 @@ export class Song {
     // optional
     artwork: string;
     mixtapeId: string;
+    mixtapeTitle: string;
 
     // calculated
     duration: number;

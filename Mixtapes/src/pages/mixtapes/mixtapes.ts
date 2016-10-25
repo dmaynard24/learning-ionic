@@ -17,6 +17,10 @@ export class MixtapesPage {
     constructor(public navController: NavController, private dataService: DataService) {}
 
     ngOnInit() {
+        this.initializeMixtapes();
+    }
+
+    initializeMixtapes() {
         this.mixtapes = this.dataService.getMixtapes();
         this.hasMixtapes = true;
     }
