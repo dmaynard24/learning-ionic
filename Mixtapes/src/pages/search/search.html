@@ -1,24 +1,24 @@
 <ion-header>
-    <!--<ion-navbar color="dark">
+    <ion-navbar>
         <ion-title>Search</ion-title>
-    </ion-navbar>-->
-    <ion-toolbar color="dark">
-        <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
-    </ion-toolbar>
+    </ion-navbar>
 </ion-header>
 
 <ion-content>
+    <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
     <ion-list>
+        <ion-list-header>Mixtapes</ion-list-header>
         <ion-item *ngFor="let mixtape of mixtapes" (click)="onNavigateToMixtape(mixtape)">
-            <ion-icon name="albums"></ion-icon>
-            <div class="inline-block ellipsis">
+            <ion-icon name="albums" isActive="false" large item-left></ion-icon>
+            <div class="ellipsis">
                 {{ mixtape.title }}
                 <div><small>{{ mixtape.artist }}</small></div>
             </div>
         </ion-item>
+        <ion-list-header>Songs</ion-list-header>
         <ion-item *ngFor="let song of songs" (click)="playSong(song)">
-            <ion-icon name="musical-notes"></ion-icon>
-            <div class="inline-block ellipsis">
+            <ion-icon name="musical-notes" isActive="false" large item-left></ion-icon>
+            <div class="ellipsis">
                 {{ song.title }}
                 <div><small>{{ song.artist }}</small></div>
             </div>

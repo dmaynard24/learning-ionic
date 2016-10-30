@@ -4,7 +4,8 @@ import { IonicApp, IonicModule } from 'ionic-angular';
 import { MixtapesApp } from './app.component';
 import { TabsPage } from '../pages/tabs/tabs';
 
-import { HomePage } from '../pages/home/home';
+import { LibraryPage } from '../pages/library/library';
+// import { HomePage } from '../pages/home/home';
 import { MixtapesPage } from '../pages/mixtapes/mixtapes';
 import { MixtapePage } from '../pages/mixtapes/mixtape/mixtape';
 import { SearchPage } from '../pages/search/search';
@@ -15,7 +16,7 @@ import { SongsPage } from '../pages/songs/songs';
     declarations: [
         MixtapesApp,
         TabsPage,
-        HomePage,
+        LibraryPage,
         MixtapesPage,
         MixtapePage,
         SearchPage,
@@ -31,7 +32,7 @@ import { SongsPage } from '../pages/songs/songs';
     entryComponents: [
         MixtapesApp,
         TabsPage,
-        HomePage,
+        LibraryPage,
         MixtapesPage,
         MixtapePage,
         SearchPage,
