@@ -6,22 +6,52 @@
 
 <ion-content>
     <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
-    <ion-list>
-        <ion-list-header>Mixtapes</ion-list-header>
-        <ion-item *ngFor="let mixtape of mixtapes" (click)="onNavigateToMixtape(mixtape)">
-            <ion-icon name="albums" isActive="false" large item-left></ion-icon>
-            <div class="ellipsis">
-                {{ mixtape.title }}
-                <div><small>{{ mixtape.artist }}</small></div>
-            </div>
-        </ion-item>
-        <ion-list-header>Songs</ion-list-header>
-        <ion-item *ngFor="let song of songs" (click)="playSong(song)">
-            <ion-icon name="musical-notes" isActive="false" large item-left></ion-icon>
-            <div class="ellipsis">
-                {{ song.title }}
-                <div><small>{{ song.artist }}</small></div>
-            </div>
-        </ion-item>
-    </ion-list>
+
+    <ion-segment [(ngModel)]="segment">
+        <ion-segment-button value="all">
+            All Music
+        </ion-segment-button>
+        <ion-segment-button value="library">
+            My Library
+        </ion-segment-button>
+    </ion-segment>
+    
+    <div [ngSwitch]="segment">
+        <ion-list *ngSwitchCase="'all'">
+            <ion-list-header *ngIf="mixtapes.length > 0">Mixtapes</ion-list-header>
+            <button ion-item *ngFor="let mixtape of mixtapes" (click)="onNavigateToMixtape(mixtape)">
+                <ion-icon name="disc" isActive="false" large item-left></ion-icon>
+                <div class="ellipsis">
+                    {{ mixtape.title }}
+                    <div><small>{{ getArtistName(mixtape.artistId) }}</small></div>
+                </div>
+            </button>
+            <ion-list-header *ngIf="songs.length > 0">Songs</ion-list-header>
+            <button ion-item [attr.detail-none]="true" *ngFor="let song of songs" (click)="playSong(song)">
+                <ion-icon name="musical-notes" isActive="false" large item-left></ion-icon>
+                <div class="ellipsis">
+                    {{ song.title }}
+                    <div><small>{{ getArtistName(song.artistId) }}</small></div>
+                </div>
+            </button>
+        </ion-list>
+        <ion-list *ngSwitchCase="'library'">
+            <ion-list-header *ngIf="mixtapes.length > 0">Mixtapes</ion-list-header>
+            <button ion-item *ngFor="let mixtape of mixtapes" (click)="onNavigateToMixtape(mixtape)">
+                <ion-icon name="disc" isActive="false" large item-left></ion-icon>
+                <div class="ellipsis">
+                    {{ mixtape.title }}
+                    <div><small>{{ getArtistName(mixtape.artistId) }}</small></div>
+                </div>
+            </button>
+            <!--<ion-list-header *ngIf="songs.length > 0">Songs</ion-list-header>
+            <ion-item *ngFor="let song of songs" (click)="playSong(song)">
+                <ion-icon name="musical-notes" isActive="false" large item-left></ion-icon>
+                <div class="ellipsis">
+                    {{ song.title }}
+                    <div><small>{{ getArtistName(song.artistId) }}</small></div>
+                </div>
+            </ion-item>-->
+        </ion-list>
+    </div>
 </ion-content>

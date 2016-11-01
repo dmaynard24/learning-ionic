@@ -10,7 +10,7 @@
         <ion-item *ngFor="let song of songs" (click)="playSong(song)">
             <div class="ellipsis">
                 {{ song.title }}
-                <div><small>{{ song.artist }} &bull; {{ song.mixtapeTitle }}</small></div>
+                <div><small>{{ getArtistName(song.artistId) }} &bull; {{ song.mixtapeTitle }}</small></div>
             </div>
         </ion-item>
     </ion-list>

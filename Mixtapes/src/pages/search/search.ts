@@ -13,6 +13,8 @@ import { MixtapePage } from '../mixtapes/mixtape/mixtape';
     templateUrl: 'search.html'
 })
 export class SearchPage {
+    segment: string = 'all';
+
     songs: Song[];
     hasSongs: boolean = false;
 
@@ -50,14 +52,18 @@ export class SearchPage {
         }
     }
 
+    playSong(_song: Song) {
+        this.audioService.setGlobalSong(_song);
+        this.audioService.playGlobalSong();
+    }
+
+    getArtistName(_artistId: string) {
+        return this.dataService.getArtistName(_artistId);
+    }
+
     onNavigateToMixtape(_mixtape: Mixtape) {
         this.navController.push(MixtapePage, {
             mixtape: _mixtape
         });
-    }
-
-    playSong(_song: Song) {
-        this.audioService.setGlobalSong(_song);
-        this.audioService.playGlobalSong();
     }
 }

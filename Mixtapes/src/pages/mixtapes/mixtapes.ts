@@ -25,6 +25,10 @@ export class MixtapesPage {
         this.hasMixtapes = true;
     }
 
+    getArtistName(_artistId: string): string {
+        return this.dataService.getArtistName(_artistId);
+    }
+
     onNavigateToMixtape(_mixtape: Mixtape) {
         this.navController.push(MixtapePage, {
             mixtape: _mixtape

@@ -42,6 +42,10 @@ export class MixtapePage {
         this.audioService.playGlobalSong();
     }
 
+    getArtistName(_artistId: string): string {
+        return this.dataService.getArtistName(_artistId);
+    }
+
     // togglePlay(index: number) {
     //     this.songs.forEach((song, i) => {
     //         // found song that's playing, if there is one

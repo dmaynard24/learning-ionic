@@ -2,7 +2,7 @@ export class Song {
     // required
     id: string;
     title: string;
-    artist: string;
+    artistId: string;
     audio: string;
 
     // optional
@@ -14,11 +14,11 @@ export class Song {
     duration: number;
     isPlaying: boolean = false;
 
-    constructor(_id: string, _title: string, _artist: string, _audio: string, _artwork?: string, _mixtapeId?: string) {
+    constructor(_id: string, _title: string, _artistId: string, _audio: string, _artwork?: string, _mixtapeId?: string) {
         // required
         this.id = _id;
         this.title = _title;
-        this.artist = _artist;
+        this.artistId = _artistId;
         this.audio = _audio;
 
         // optional

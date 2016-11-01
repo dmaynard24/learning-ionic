@@ -44,4 +44,8 @@ export class SongsPage {
         this.audioService.setGlobalSong(_song);
         this.audioService.playGlobalSong();
     }
+
+    getArtistName(_artistId: string): string {
+        return this.dataService.getArtistName(_artistId);
+    }
  }

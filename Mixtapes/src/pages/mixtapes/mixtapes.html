@@ -8,9 +8,9 @@
     <ion-card *ngFor="let mixtape of mixtapes" (click)="onNavigateToMixtape(mixtape)">
         <img src="{{mixtape.artwork}}" />
         <ion-card-content>
-            <ion-card-title>{{mixtape.title}}</ion-card-title>
+            <ion-card-title>{{ mixtape.title }}</ion-card-title>
             <p>
-                {{mixtape.artist}}
+                {{ getArtistName(mixtape.artistId) }}
             </p>
         </ion-card-content>
     </ion-card>

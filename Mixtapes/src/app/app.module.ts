@@ -5,6 +5,7 @@ import { MixtapesApp } from './app.component';
 import { TabsPage } from '../pages/tabs/tabs';
 
 import { LibraryPage } from '../pages/library/library';
+import { FollowingPage } from '../pages/library/following/following';
 // import { HomePage } from '../pages/home/home';
 import { MixtapesPage } from '../pages/mixtapes/mixtapes';
 import { MixtapePage } from '../pages/mixtapes/mixtape/mixtape';
@@ -17,6 +18,7 @@ import { SongsPage } from '../pages/songs/songs';
         MixtapesApp,
         TabsPage,
         LibraryPage,
+        FollowingPage,
         MixtapesPage,
         MixtapePage,
         SearchPage,
@@ -33,6 +35,7 @@ import { SongsPage } from '../pages/songs/songs';
         MixtapesApp,
         TabsPage,
         LibraryPage,
+        FollowingPage,
         MixtapesPage,
         MixtapePage,
         SearchPage,

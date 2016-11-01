@@ -5,17 +5,17 @@
 </ion-header>
 
 <ion-content>
-    <ion-img src="{{mixtape.artwork}}"></ion-img>
+    <ion-img src="{{ mixtape.artwork }}"></ion-img>
     <!--<img src="{{mixtape.artwork}}" />-->
-    <p padding>{{mixtape.artist}}</p>
+    <p padding>{{ getArtistName(mixtape.artistId) }}</p>
     <ion-list id="song-list">
         <ion-item *ngFor="let song of songs; let i = index" (click)="playSong(song)">
             <!--<audio id="{{i}}" preload="auto" volume="0.5">-->
             <!--<audio id="{{i}}" preload="auto">
-                <source src="../assets/data/Wiz Khalifa/Cabin Fever/{{song.audio}}" type="audio/mpeg" />
+                <source src="../assets/data/artists/Wiz Khalifa/Cabin Fever/{{song.audio}}" type="audio/mpeg" />
             </audio>-->
             <!--{{i + 1}}. {{song.title}}-->
-            {{song.title}}
+            {{ song.title }}
         </ion-item>
     </ion-list>
 </ion-content>

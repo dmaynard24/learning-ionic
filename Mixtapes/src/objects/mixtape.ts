@@ -1,13 +1,17 @@
 export class Mixtape {
     id: string;
-    artwork: string;
     title: string;
-    artist: string;
+    artistId: string;
 
-    constructor(_id: string, _artwork: string, _title: string, _artist: string) {
+    // optional
+    artwork: string;
+
+    constructor(_id: string, _title: string, _artistId: string, _artwork?: string) {
         this.id = _id;
-        this.artwork = _artwork;
         this.title = _title;
-        this.artist = _artist;
+        this.artistId = _artistId;
+
+        // optional
+        this.artwork = _artwork;
     }
 }

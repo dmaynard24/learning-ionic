@@ -5,22 +5,37 @@
 </ion-header>
 
 <ion-content>
+    <div class="avatar">
+        <ion-img src="../assets/data/users/dave_maynard/avatar.jpg"></ion-img>
+        <h3>Dave Maynard</h3>
+        <div class="username">@dave_maynard</div>
+    </div>
+    <ion-grid no-padding>
+        <ion-row>
+            <ion-col width-50 text-center>
+                <button ion-item [attr.detail-none]="true" (click)="onNavigateFollowing()"><b>150</b> Following</button>
+            </ion-col>
+            <ion-col width-50 text-center>
+                <button ion-item [attr.detail-none]="true"><b>150</b> Friends</button>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
     <ion-list>
-        <ion-item>
+        <button ion-item>
             <ion-icon name="list" isActive="false" large item-left></ion-icon>
             Playlists
-        </ion-item>
-        <ion-item>
+        </button>
+        <button ion-item>
             <ion-icon name="disc" isActive="false" large item-left></ion-icon>
             Mixtapes
-        </ion-item>
-        <ion-item>
+        </button>
+        <button ion-item>
             <ion-icon name="contact" isActive="false" large item-left></ion-icon>
             Artists
-        </ion-item>
-        <ion-item>
+        </button>
+        <button ion-item>
             <ion-icon name="musical-notes" isActive="false" large item-left></ion-icon>
             Songs
-        </ion-item>
+        </button>
     </ion-list>
 </ion-content>
