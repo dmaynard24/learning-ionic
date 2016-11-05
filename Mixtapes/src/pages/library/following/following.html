@@ -6,24 +6,12 @@
 
 <ion-content>
     <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
-    <ion-list>
-        <button ion-item>
+    <ion-list *ngIf="hasArtists">
+        <button ion-item *ngFor="let artist of artists">
             <ion-avatar item-left>
-                <ion-img src="../assets/data/users/dave_maynard/avatar.jpg"></ion-img>
+                <img src="../assets/data/users/dave_maynard/avatar.jpg" />
             </ion-avatar>
-            <div>Wiz Khalifa</div>
-        </button>
-        <button ion-item>
-            <ion-avatar item-left>
-                <ion-img src="../assets/data/users/dave_maynard/avatar.jpg"></ion-img>
-            </ion-avatar>
-            <div>A$AP Rocky</div>
-        </button>
-        <button ion-item>
-            <ion-avatar item-left>
-                <ion-img src="../assets/data/users/dave_maynard/avatar.jpg"></ion-img>
-            </ion-avatar>
-            <div>Lil Wayne</div>
+            <div>{{ artist.name }}</div>
         </button>
     </ion-list>
 </ion-content>

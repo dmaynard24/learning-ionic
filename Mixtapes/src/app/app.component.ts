@@ -3,12 +3,13 @@ import { Platform } from 'ionic-angular';
 import { StatusBar } from 'ionic-native';
 
 import { TabsPage } from '../pages/tabs/tabs';
+import { UserService } from '../services/user.service';
 import { DataService } from '../services/data.service';
 import { AudioService } from '../services/audio.service';
 
 @Component({
   template: `<ion-nav [root]="rootPage"></ion-nav>`,
-  providers: [ DataService, AudioService ]
+  providers: [ UserService, DataService, AudioService ]
 })
 export class MixtapesApp {
     rootPage = TabsPage;

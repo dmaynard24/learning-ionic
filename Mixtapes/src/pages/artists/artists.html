@@ -4,6 +4,14 @@
     </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-    <h2>Artists page!</h2>
+<ion-content>
+    <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+    <ion-list *ngIf="hasArtists">
+        <button ion-item *ngFor="let artist of artists" (click)="onNavigateToArtist(artist)">
+            <ion-avatar item-left>
+                <img src="../assets/data/users/dave_maynard/avatar.jpg" />
+            </ion-avatar>
+            <div>{{ artist.name }}</div>
+        </button>
+    </ion-list>
 </ion-content>

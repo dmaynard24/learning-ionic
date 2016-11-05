@@ -5,13 +5,87 @@
 </ion-header>
 
 <ion-content *ngIf="hasMixtapes">
-    <ion-card *ngFor="let mixtape of mixtapes" (click)="onNavigateToMixtape(mixtape)">
-        <img src="{{mixtape.artwork}}" />
-        <ion-card-content>
-            <ion-card-title>{{ mixtape.title }}</ion-card-title>
-            <p>
-                {{ getArtistName(mixtape.artistId) }}
-            </p>
-        </ion-card-content>
-    </ion-card>
+    <!--<ion-scroll class="custom-row" scrollX="true" scrollY="false" zoom="false">
+        <ion-grid>
+            <ion-row>
+                <ion-col width-33 *ngFor="let mixtape of mixtapes">
+                    <ion-card class="custom-card" (click)="onNavigateToMixtape(mixtape)">
+                        <img src="{{mixtape.artwork}}" />
+                        <ion-card-content>
+                            <ion-card-title>{{ mixtape.title }}</ion-card-title>
+                            <p>
+                                {{ getArtistName(mixtape.artistId) }}
+                            </p>
+                        </ion-card-content>
+                    </ion-card>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </ion-scroll>-->
+
+    <!--<ion-scroll class="row-x" scrollX="true" scrollY="false" zoom="false">
+        <ion-card class="custom-card" *ngFor="let mixtape of mixtapes" (click)="onNavigateToMixtape(mixtape)">
+            <img src="{{mixtape.artwork}}" />
+            <ion-card-content>
+                <ion-card-title>{{ mixtape.title }}</ion-card-title>
+                <p>
+                    {{ getArtistName(mixtape.artistId) }}
+                </p>
+            </ion-card-content>
+        </ion-card>
+    </ion-scroll>-->
+
+    <ion-list-header>Featured</ion-list-header>
+    <ion-scroll class="row-x" scrollX="true">
+        <ion-grid>
+            <ion-row>
+                <ion-col width-33 *ngFor="let mixtape of mixtapes">
+                    <ion-card class="custom-card" (click)="onNavigateToMixtape(mixtape)">
+                        <!--<div class="img-preload"></div>-->
+                        <img src="{{mixtape.artwork}}" />
+                        <ion-card-content>
+                            <ion-card-title>{{ mixtape.title }}</ion-card-title>
+                            <p><small>{{ getArtistName(mixtape.artistId) }}</small></p>
+                        </ion-card-content>
+                    </ion-card>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </ion-scroll>
+
+    <ion-list-header>Popular</ion-list-header>
+    <ion-scroll class="row-x" scrollX="true">
+        <ion-grid>
+            <ion-row>
+                <ion-col width-33 *ngFor="let mixtape of mixtapes">
+                    <ion-card class="custom-card" (click)="onNavigateToMixtape(mixtape)">
+                        <!--<div class="img-preload"></div>-->
+                        <img src="{{mixtape.artwork}}" />
+                        <ion-card-content>
+                            <ion-card-title>{{ mixtape.title }}</ion-card-title>
+                            <p><small>{{ getArtistName(mixtape.artistId) }}</small></p>
+                        </ion-card-content>
+                    </ion-card>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </ion-scroll>
+
+    <ion-list-header>Recommended</ion-list-header>
+    <ion-scroll class="row-x" scrollX="true">
+        <ion-grid>
+            <ion-row>
+                <ion-col width-33 *ngFor="let mixtape of mixtapes">
+                    <ion-card class="custom-card" (click)="onNavigateToMixtape(mixtape)">
+                        <!--<div class="img-preload"></div>-->
+                        <img src="{{mixtape.artwork}}" />
+                        <ion-card-content>
+                            <ion-card-title>{{ mixtape.title }}</ion-card-title>
+                            <p><small>{{ getArtistName(mixtape.artistId) }}</small></p>
+                        </ion-card-content>
+                    </ion-card>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </ion-scroll>
 </ion-content>

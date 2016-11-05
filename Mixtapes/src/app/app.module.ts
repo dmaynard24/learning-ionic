@@ -11,6 +11,7 @@ import { MixtapesPage } from '../pages/mixtapes/mixtapes';
 import { MixtapePage } from '../pages/mixtapes/mixtape/mixtape';
 import { SearchPage } from '../pages/search/search';
 import { ArtistsPage } from '../pages/artists/artists';
+import { ArtistPage } from '../pages/artists/artist/artist';
 import { SongsPage } from '../pages/songs/songs';
 
 @NgModule({
@@ -23,6 +24,7 @@ import { SongsPage } from '../pages/songs/songs';
         MixtapePage,
         SearchPage,
         ArtistsPage,
+        ArtistPage,
         SongsPage
     ],
     imports: [
@@ -40,6 +42,7 @@ import { SongsPage } from '../pages/songs/songs';
         MixtapePage,
         SearchPage,
         ArtistsPage,
+        ArtistPage,
         SongsPage
     ],
     providers: []

@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 
 import { NavController } from 'ionic-angular';
 
+import { UserService } from '../../services/user.service';
+import { User } from '../../objects/user';
 import { FollowingPage } from './following/following';
 
 @Component({
@@ -9,9 +11,15 @@ import { FollowingPage } from './following/following';
     templateUrl: 'library.html'
 })
 export class LibraryPage {
-    constructor(public navController: NavController) {}
+    user: User;
+    hasUser: boolean = false;
 
-    onNavigateFollowing() {
+    constructor(public navController: NavController, private userService: UserService) {
+        this.user = this.userService.getUser();
+        this.hasUser = true;
+    }
+
+    onNavigateToFollowing() {
         this.navController.push(FollowingPage);
     }
 }

@@ -1,11 +1,11 @@
 <ion-header>
     <ion-navbar>
-        <ion-title>{{mixtape.title}}</ion-title>
+        <ion-title>{{ mixtape.title }}</ion-title>
     </ion-navbar>
 </ion-header>
 
 <ion-content>
-    <ion-img src="{{ mixtape.artwork }}"></ion-img>
+    <img src="{{ mixtape.artwork }}" />
     <!--<img src="{{mixtape.artwork}}" />-->
     <p padding>{{ getArtistName(mixtape.artistId) }}</p>
     <ion-list id="song-list">

@@ -16,7 +16,39 @@
 // automatically applied to the <body> element in the app.
 
 ion-title {
-    text-transform: uppercase;
+    // text-transform: uppercase;
+}
+
+ion-list {
+    &.list-ios {
+        margin: -1px 0 0 0;
+    }
+}
+
+ion-img {
+    &:before {
+        content: '';
+        float: left;
+        padding-top: 100%;
+    }
+
+    &.round {
+        .img-placeholder {
+            border-radius: 50%;
+        }
+    }
+}
+
+ion-avatar {
+    ion-img {
+        .img-placeholder {
+            border-radius: 50%;
+        }
+    }
+}
+
+small {
+    font-size: 1.2rem;
 }
 
 .inline-block {
@@ -34,6 +66,35 @@ ion-title {
     .segment-button {
         &:first-of-type, &:last-of-type {
             border-radius: 0px;
+        }
+    }
+}
+
+// app specific styles
+
+.row-x {
+    .scroll-content {
+        position: relative;
+    }
+
+    ion-grid {
+        width: 200%;
+    }
+
+    ion-col {
+        border: none !important;
+
+        .custom-card {
+            position: relative;
+
+            ion-card-content {
+                padding: 10px;
+
+                ion-card-title {
+                    font-size: 1.6rem;
+                    padding: 4px 0px;
+                }
+            }
         }
     }
 }

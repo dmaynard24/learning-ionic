@@ -4,37 +4,37 @@
     </ion-navbar>
 </ion-header>
 
-<ion-content>
+<ion-content *ngIf="hasUser">
     <div class="avatar">
-        <ion-img src="../assets/data/users/dave_maynard/avatar.jpg"></ion-img>
-        <h3>Dave Maynard</h3>
-        <div class="username">@dave_maynard</div>
+        <img src="{{ user.avatar }}" class="round" />
+        <h3>{{ user.firstName }}<span *ngIf="user.lastName"> {{ user.lastName }}</span></h3>
+        <div class="username">@{{ user.username }}</div>
     </div>
     <ion-grid no-padding>
         <ion-row>
             <ion-col width-50 text-center>
-                <button ion-item [attr.detail-none]="true" (click)="onNavigateFollowing()"><b>150</b> Following</button>
+                <button ion-item [attr.detail-none]="true" [disabled]="user.following.length < 1" (click)="onNavigateToFollowing()"><b>{{ user.following.length }}</b> Following</button>
             </ion-col>
             <ion-col width-50 text-center>
-                <button ion-item [attr.detail-none]="true"><b>150</b> Friends</button>
+                <button ion-item [attr.detail-none]="true" [disabled]="user.friends.length < 1"><b>{{ user.friends.length }}</b> Friends</button>
             </ion-col>
         </ion-row>
     </ion-grid>
     <ion-list>
-        <button ion-item>
-            <ion-icon name="list" isActive="false" large item-left></ion-icon>
+        <!--<button ion-item>
+            <ion-icon name="list" large item-left></ion-icon>
             Playlists
-        </button>
+        </button>-->
         <button ion-item>
-            <ion-icon name="disc" isActive="false" large item-left></ion-icon>
-            Mixtapes
-        </button>
-        <button ion-item>
-            <ion-icon name="contact" isActive="false" large item-left></ion-icon>
+            <ion-icon name="contact" large item-left></ion-icon>
             Artists
         </button>
         <button ion-item>
-            <ion-icon name="musical-notes" isActive="false" large item-left></ion-icon>
+            <ion-icon name="disc" large item-left></ion-icon>
+            Mixtapes
+        </button>
+        <button ion-item>
+            <ion-icon name="musical-notes" large item-left></ion-icon>
             Songs
         </button>
     </ion-list>
