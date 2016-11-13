@@ -9,7 +9,7 @@
     <ion-list *ngIf="hasArtists">
         <button ion-item *ngFor="let artist of artists">
             <ion-avatar item-left>
-                <img src="../assets/data/users/dave_maynard/avatar.jpg" />
+                <img src="{{ artist.image }}" />
             </ion-avatar>
             <div>{{ artist.name }}</div>
         </button>

@@ -98,7 +98,7 @@ export class DataService {
 
     setArtistImages() {
         this.artists.forEach(artist => {
-            artist.image = '../assets/data/artists/' + artist.name + '/image.jpg';
+            artist.image = '../assets/data/artists/' + artist.name + '/_image.jpg';
         });
     }
 

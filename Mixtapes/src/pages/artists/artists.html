@@ -5,13 +5,67 @@
 </ion-header>
 
 <ion-content>
-    <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+    <!--<ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
     <ion-list *ngIf="hasArtists">
         <button ion-item *ngFor="let artist of artists" (click)="onNavigateToArtist(artist)">
             <ion-avatar item-left>
-                <img src="../assets/data/users/dave_maynard/avatar.jpg" />
+                <img src="{{ artist.image }}" />
             </ion-avatar>
             <div>{{ artist.name }}</div>
         </button>
-    </ion-list>
+    </ion-list>-->
+
+    <ion-list-header>Featured</ion-list-header>
+    <ion-scroll class="row-x" scrollX="true">
+        <ion-grid>
+            <ion-row>
+                <ion-col width-20 *ngFor="let artist of artists">
+                    <ion-card class="custom-card" (click)="onNavigateToArtist(artist)">
+                        <!--<div class="img-preload"></div>-->
+                        <img src="{{ artist.image }}" class="round" />
+                        <ion-card-content>
+                            <ion-card-title>{{ artist.name }}</ion-card-title>
+                            <!--<p><small>{{ getArtistName(mixtape.artistId) }}</small></p>-->
+                        </ion-card-content>
+                    </ion-card>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </ion-scroll>
+
+    <ion-list-header>Popular</ion-list-header>
+    <ion-scroll class="row-x" scrollX="true">
+        <ion-grid>
+            <ion-row>
+                <ion-col width-20 *ngFor="let artist of artists">
+                    <ion-card class="custom-card" (click)="onNavigateToArtist(artist)">
+                        <!--<div class="img-preload"></div>-->
+                        <img src="{{ artist.image }}" class="round" />
+                        <ion-card-content>
+                            <ion-card-title>{{ artist.name }}</ion-card-title>
+                            <!--<p><small>{{ getArtistName(mixtape.artistId) }}</small></p>-->
+                        </ion-card-content>
+                    </ion-card>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </ion-scroll>
+
+    <ion-list-header>Recommended</ion-list-header>
+    <ion-scroll class="row-x" scrollX="true">
+        <ion-grid>
+            <ion-row>
+                <ion-col width-20 *ngFor="let artist of artists">
+                    <ion-card class="custom-card" (click)="onNavigateToArtist(artist)">
+                        <!--<div class="img-preload"></div>-->
+                        <img src="{{ artist.image }}" class="round" />
+                        <ion-card-content>
+                            <ion-card-title>{{ artist.name }}</ion-card-title>
+                            <!--<p><small>{{ getArtistName(mixtape.artistId) }}</small></p>-->
+                        </ion-card-content>
+                    </ion-card>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </ion-scroll>
 </ion-content>

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { NavController } from 'ionic-angular';
+import { NavController, ActionSheetController } from 'ionic-angular';
 
 import { DataService } from '../../services/data.service';
 import { AudioService } from '../../services/audio.service';
@@ -14,7 +14,10 @@ export class SongsPage {
     songs: Song[];
     hasSongs: boolean = false;
 
-    constructor(public navController: NavController, private dataService: DataService, private audioService: AudioService) {}
+    constructor(public navController: NavController,
+                public actionSheetController: ActionSheetController,
+                private dataService: DataService,
+                private audioService: AudioService) {}
 
     ngOnInit() {
         this.initializeSongs();
@@ -47,5 +50,40 @@ export class SongsPage {
 
     getArtistName(_artistId: string): string {
         return this.dataService.getArtistName(_artistId);
+    }
+
+    presentActionSheet(_song: Song) {
+        let actionSheet = this.actionSheetController.create({
+            title: _song.title,
+            buttons: [
+                {
+                    icon: 'add',
+                    text: 'Add to Library',
+                    handler: () => {
+                        console.log('add to library clicked');
+                    }
+                }, {
+                    icon: 'contact',
+                    text: 'Go to Artist',
+                    handler: () => {
+                        console.log('go to artist clicked');
+                    }
+                }, {
+                    icon: 'disc',
+                    text: 'Go to Mixtape',
+                    handler: () => {
+                        console.log('go to mixtape clicked');
+                    }
+                }, {
+                    icon: 'close',
+                    text: 'Cancel',
+                    role: 'cancel',
+                    handler: () => {
+                        console.log('cancel clicked');
+                    }
+                }
+            ]
+        });
+        actionSheet.present();
     }
  }

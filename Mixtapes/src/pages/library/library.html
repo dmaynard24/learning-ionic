@@ -16,7 +16,8 @@
                 <button ion-item [attr.detail-none]="true" [disabled]="user.following.length < 1" (click)="onNavigateToFollowing()"><b>{{ user.following.length }}</b> Following</button>
             </ion-col>
             <ion-col width-50 text-center>
-                <button ion-item [attr.detail-none]="true" [disabled]="user.friends.length < 1"><b>{{ user.friends.length }}</b> Friends</button>
+                <!--<button ion-item [attr.detail-none]="true" [disabled]="user.friends.length < 1"><b>{{ user.friends.length }}</b> Friends</button>-->
+                <button ion-item [attr.detail-none]="true" [disabled]="user.friends.length < 1">Friends</button>
             </ion-col>
         </ion-row>
     </ion-grid>

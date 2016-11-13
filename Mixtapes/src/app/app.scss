@@ -47,8 +47,24 @@ ion-avatar {
     }
 }
 
+ion-action-sheet {
+    button {
+        .button-inner {
+            justify-content: flex-start;
+
+            ion-icon {
+                width: 35px;
+            }
+        }
+    }
+}
+
 small {
     font-size: 1.2rem;
+}
+
+::-webkit-scrollbar {
+    display: none;
 }
 
 .inline-block {
@@ -68,6 +84,10 @@ small {
             border-radius: 0px;
         }
     }
+}
+
+.round {
+    border-radius: 50%;
 }
 
 // app specific styles
