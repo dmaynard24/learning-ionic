@@ -16,8 +16,8 @@
     </ion-list>-->
 
     <ion-list-header>Featured</ion-list-header>
-    <ion-list>
-        <ion-item *ngFor="let song of songs.slice(0, 5)">
+    <ion-list class="margin-bottom">
+        <button ion-item [attr.detail-none]="true" *ngFor="let song of songs.slice(0, 5)">
             <ion-thumbnail item-left>
                 <img src="{{ song.artwork }}" />
             </ion-thumbnail>
@@ -28,12 +28,12 @@
             <button ion-button clear icon-only item-right color="dark" (click)="presentActionSheet(song);">
                 <ion-icon name="more"></ion-icon>
             </button>
-        </ion-item>
+        </button>
     </ion-list>
 
     <ion-list-header>Popular</ion-list-header>
-    <ion-list>
-        <ion-item *ngFor="let song of songs.slice(0, 5)">
+    <ion-list class="margin-bottom">
+        <button ion-item [attr.detail-none]="true" *ngFor="let song of songs.slice(0, 5)">
             <ion-thumbnail item-left>
                 <img src="{{ song.artwork }}" />
             </ion-thumbnail>
@@ -44,12 +44,12 @@
             <button ion-button clear icon-only item-right color="dark" (click)="presentActionSheet(song);">
                 <ion-icon name="more"></ion-icon>
             </button>
-        </ion-item>
+        </button>
     </ion-list>
 
     <ion-list-header>Recommended</ion-list-header>
     <ion-list>
-        <ion-item *ngFor="let song of songs.slice(0, 5)">
+        <button ion-item [attr.detail-none]="true" *ngFor="let song of songs.slice(0, 5)">
             <ion-thumbnail item-left>
                 <img src="{{ song.artwork }}" />
             </ion-thumbnail>
@@ -60,6 +60,6 @@
             <button ion-button clear icon-only item-right color="dark" (click)="presentActionSheet(song);">
                 <ion-icon name="more"></ion-icon>
             </button>
-        </ion-item>
+        </button>
     </ion-list>
 </ion-content>

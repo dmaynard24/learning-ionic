@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import _ from 'lodash';
 
 import { Artist } from '../objects/artist';
 import { Mixtape } from '../objects/mixtape';
@@ -85,15 +86,9 @@ export class DataService {
     getArtists(): Artist[] {
         return this.artists;
     }
-    
-    getArtistName(_artistId: string): string {
-        let name: string;
-        this.artists.forEach(artist => {
-            if (artist.id === _artistId) {
-                name = artist.name;
-            }
-        });
-        return name;
+
+    getArtist(_artistId: string): Artist {
+        return _.find(this.artists, ['id', _artistId]);
     }
 
     setArtistImages() {
@@ -106,19 +101,13 @@ export class DataService {
         return this.mixtapes;
     }
 
-    getMixtapeTitle(_mixtapeId: string): string {
-        let title: string;
-        this.mixtapes.forEach(mixtape => {
-            if (mixtape.id === _mixtapeId) {
-                title = mixtape.title;
-            }
-        });
-        return title;
+    getMixtape(_mixtapeId: string): Mixtape {
+        return _.find(this.mixtapes, ['id', _mixtapeId]);
     }
 
     setMixtapeArtworks() {
         this.mixtapes.forEach(mixtape => {
-            mixtape.artwork = '../assets/data/artists/' + this.getArtistName(mixtape.artistId) + '/' + mixtape.title + '/front.jpg';
+            mixtape.artwork = '../assets/data/artists/' + this.getArtist(mixtape.artistId).name + '/' + mixtape.title + '/front.jpg';
         });
     }
 
@@ -129,7 +118,7 @@ export class DataService {
     setSongArtworks() {
         this.songs.forEach(song => {
             if (!song.artwork) {
-                song.artwork = '../assets/data/artists/' + this.getArtistName(song.artistId) + '/' + this.getMixtapeTitle(song.mixtapeId) + '/front.jpg';
+                song.artwork = '../assets/data/artists/' + this.getArtist(song.artistId).name + '/' + this.getMixtape(song.mixtapeId).title + '/front.jpg';
             }
         });
     }

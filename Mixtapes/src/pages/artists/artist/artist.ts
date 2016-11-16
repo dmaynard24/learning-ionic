@@ -13,9 +13,11 @@ import { Song } from '../../../objects/song';
     templateUrl: 'artist.html'
 })
 export class ArtistPage {
-    artist: Artist[];
-    // songs: Song[] = [];
-    // hasSongs: boolean = false;
+    artist: Artist;
+    songs: Song[] = [];
+    mixtapes: Mixtape[] = [];
+    hasSongs: boolean = false;
+    hasMixtapes: boolean = false;
 
     constructor(public navController: NavController, 
                 private navParams: NavParams, 
@@ -26,20 +28,35 @@ export class ArtistPage {
 
     ngOnInit() {
         this.getSongs();
+        this.getMixtapes();
     }
 
     getSongs() {
-        // let allSongs: Song[] = this.dataService.getSongs();
-        // allSongs.forEach(song => {
-        //     if (song.mixtapeId === this.mixtape.id) {
-        //         this.songs.push(song);
-        //     }
-        // })
-        // this.hasSongs = true;
+        let allSongs: Song[] = this.dataService.getSongs();
+        allSongs.forEach(song => {
+            if (song.artistId === this.artist.id) {
+                this.songs.push(song);
+            }
+        });
+        if (this.songs.length > 0) {
+            this.hasSongs = true;
+        }
     }
 
     playSong(_song: Song) {
         this.audioService.setGlobalSong(_song);
         this.audioService.playGlobalSong();
+    }
+
+    getMixtapes() {
+        let allMixtapes: Mixtape[] = this.dataService.getMixtapes();
+        allMixtapes.forEach(mixtape => {
+            if (mixtape.artistId === this.artist.id) {
+                this.mixtapes.push(mixtape);
+            }
+        });
+        if (this.mixtapes.length > 0) {
+            this.hasMixtapes = true;
+        }
     }
 }

@@ -6,9 +6,16 @@
 
 <ion-content>
     <img src="{{ artist.image }}" />
-    <!--<ion-list id="song-list">
-        <ion-item *ngFor="let song of songs; let i = index" (click)="playSong(song)">
-            {{ song.title }}
+    <ion-list *ngIf="hasSongs" class="margin-bottom">
+        <ion-list-header>Top Songs</ion-list-header>
+        <ion-item *ngFor="let song of songs.slice(0, 5), let i = index" (click)="playSong(song)">
+            {{ i + 1 }}. {{ song.title }}
         </ion-item>
-    </ion-list>-->
+    </ion-list>
+    <ion-list *ngIf="hasMixtapes">
+        <ion-list-header>Top Mixtapes</ion-list-header>
+        <ion-item *ngFor="let mixtape of mixtapes">
+            {{ mixtape.title }}
+        </ion-item>
+    </ion-list>
 </ion-content>

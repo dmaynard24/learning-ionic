@@ -14,8 +14,8 @@ export class AudioService {
 
     setGlobalSong(_song: Song): void {
         this.globalSong = _song;
-        this.globalAudio.src = '../assets/data/artists/' + this.dataService.getArtistName(_song.artistId) 
-                             + '/' + this.dataService.getMixtapeTitle(_song.mixtapeId) + '/' + _song.audio;
+        this.globalAudio.src = '../assets/data/artists/' + this.dataService.getArtist(_song.artistId).name 
+                             + '/' + this.dataService.getMixtape(_song.mixtapeId).title + '/' + _song.audio;
         this.globalAudio.currentTime = 0;
         this.globalAudio.volume = 0.25;
     }

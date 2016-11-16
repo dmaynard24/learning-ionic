@@ -25,6 +25,12 @@ ion-list {
     }
 }
 
+ion-list.margin-bottom {
+    &.list-ios {
+        margin: -1px 0 32px 0;
+    }
+}
+
 ion-img {
     &:before {
         content: '';

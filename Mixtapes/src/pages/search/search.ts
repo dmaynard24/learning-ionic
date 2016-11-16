@@ -58,7 +58,7 @@ export class SearchPage {
     }
 
     getArtistName(_artistId: string) {
-        return this.dataService.getArtistName(_artistId);
+        return this.dataService.getArtist(_artistId).name;
     }
 
     onNavigateToMixtape(_mixtape: Mixtape) {

@@ -43,7 +43,7 @@ export class MixtapePage {
     }
 
     getArtistName(_artistId: string): string {
-        return this.dataService.getArtistName(_artistId);
+        return this.dataService.getArtist(_artistId).name;
     }
 
     // togglePlay(index: number) {

@@ -4,7 +4,11 @@ import { NavController, ActionSheetController } from 'ionic-angular';
 
 import { DataService } from '../../services/data.service';
 import { AudioService } from '../../services/audio.service';
+import { Artist } from '../../objects/artist';
+import { Mixtape } from '../../objects/mixtape';
 import { Song } from '../../objects/song';
+import { ArtistPage } from '../../pages/artists/artist/artist';
+import { MixtapePage } from '../../pages/mixtapes/mixtape/mixtape';
 
 @Component({
     selector: 'songs-page',
@@ -26,7 +30,7 @@ export class SongsPage {
     initializeSongs() {
         this.songs = this.dataService.getSongs();
         this.songs.forEach(song => {
-            song.mixtapeTitle = this.dataService.getMixtapeTitle(song.mixtapeId);
+            song.mixtapeTitle = this.dataService.getMixtape(song.mixtapeId).title;
         });
         this.hasSongs = true;
     }
@@ -48,8 +52,16 @@ export class SongsPage {
         this.audioService.playGlobalSong();
     }
 
+    getArtist(_artistId: string): Artist {
+        return this.dataService.getArtist(_artistId);
+    }
+
     getArtistName(_artistId: string): string {
-        return this.dataService.getArtistName(_artistId);
+        return this.getArtist(_artistId).name;
+    }
+
+    getMixtape(_mixtapeId: string): Mixtape {
+        return this.dataService.getMixtape(_mixtapeId);
     }
 
     presentActionSheet(_song: Song) {
@@ -66,13 +78,17 @@ export class SongsPage {
                     icon: 'contact',
                     text: 'Go to Artist',
                     handler: () => {
-                        console.log('go to artist clicked');
+                        this.navController.push(ArtistPage, {
+                            artist: this.getArtist(_song.artistId)
+                        });
                     }
                 }, {
                     icon: 'disc',
                     text: 'Go to Mixtape',
                     handler: () => {
-                        console.log('go to mixtape clicked');
+                        this.navController.push(MixtapePage, {
+                            mixtape: this.getMixtape(_song.mixtapeId)
+                        });
                     }
                 }, {
                     icon: 'close',
