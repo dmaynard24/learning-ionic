@@ -14,6 +14,10 @@ import { ArtistsPage } from '../pages/artists/artists';
 import { ArtistPage } from '../pages/artists/artist/artist';
 import { SongsPage } from '../pages/songs/songs';
 
+import { UserService } from '../services/user.service';
+import { DataService } from '../services/data.service';
+import { AudioService } from '../services/audio.service';
+
 @NgModule({
     declarations: [
         MixtapesApp,
@@ -45,6 +49,6 @@ import { SongsPage } from '../pages/songs/songs';
         ArtistPage,
         SongsPage
     ],
-    providers: []
+    providers: [UserService, DataService, AudioService]
 })
 export class AppModule {}
