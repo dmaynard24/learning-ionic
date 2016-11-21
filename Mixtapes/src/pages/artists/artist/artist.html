@@ -5,17 +5,35 @@
 </ion-header>
 
 <ion-content>
-    <img src="{{ artist.image }}" />
-    <ion-list *ngIf="hasSongs" class="margin-bottom">
+    <div class="hero">
+        <img class="artist-bg" src="{{ artist.image }}" />
+        <div class="artist-bg-overlay"></div>
+        <div class="artist-info">
+            <img class="round" src="{{ artist.image }}" />
+            <div *ngIf="isFollowing != null">
+                <button *ngIf="!isFollowing" ion-button round class="centered drop-shadow" (click)="follow()">FOLLOW</button>
+                <button *ngIf="isFollowing" ion-button round outline class="centered drop-shadow" (click)="unfollow()">FOLLOWING</button>
+            </div>
+        </div>
+    </div>
+    <ion-list *ngIf="hasSongs" class="margin-top margin-bottom">
         <ion-list-header>Top Songs</ion-list-header>
         <ion-item *ngFor="let song of songs.slice(0, 5), let i = index" (click)="playSong(song)">
             {{ i + 1 }}. {{ song.title }}
         </ion-item>
     </ion-list>
-    <ion-list *ngIf="hasMixtapes">
+    <div *ngIf="hasMixtapes">
         <ion-list-header>Top Mixtapes</ion-list-header>
-        <ion-item *ngFor="let mixtape of mixtapes">
+        <!--<ion-item *ngFor="let mixtape of mixtapes">
             {{ mixtape.title }}
-        </ion-item>
-    </ion-list>
+        </ion-item>-->
+        <ion-card *ngFor="let mixtape of mixtapes" class="custom-card" (click)="onNavigateToMixtape(mixtape)">
+            <!--<div class="img-preload"></div>-->
+            <img src="{{ mixtape.artwork }}" />
+            <ion-card-content>
+                <ion-card-title>{{ mixtape.title }}</ion-card-title>
+                <p><small>{{ mixtape.releaseDate.getFullYear() }}</small></p>
+            </ion-card-content>
+        </ion-card>
+    </div>
 </ion-content>

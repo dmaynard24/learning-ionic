@@ -1,5 +1,5 @@
 // http://ionicframework.com/docs/v2/theming/
-
+@import '../theme/variables';
 
 // App Global Sass
 // --------------------------------------------------
@@ -27,7 +27,7 @@ ion-list {
 
 ion-list.margin-bottom {
     &.list-ios {
-        margin: -1px 0 32px 0;
+        margin-bottom: 32px;
     }
 }
 
@@ -96,6 +96,24 @@ small {
     border-radius: 50%;
 }
 
+.drop-shadow {
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    z-index: 5;
+}
+
+.centered {
+    display: block;
+    margin: auto;
+}
+
+.margin-top {
+    margin-top: 16px !important;
+}
+
+.margin {
+    margin: 8px;
+}
+
 // app specific styles
 
 .row-x {
@@ -105,21 +123,23 @@ small {
 
     ion-grid {
         width: 200%;
+
+        ion-col {
+            border: none !important;
+        }
     }
+}
 
-    ion-col {
-        border: none !important;
+ion-col {
+    .custom-card {
+        position: relative;
 
-        .custom-card {
-            position: relative;
+        ion-card-content {
+            padding: 10px;
 
-            ion-card-content {
-                padding: 10px;
-
-                ion-card-title {
-                    font-size: 1.6rem;
-                    padding: 4px 0px;
-                }
+            ion-card-title {
+                font-size: 1.6rem;
+                padding: 4px 0px;
             }
         }
     }

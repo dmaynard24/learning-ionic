@@ -1,0 +1,46 @@
+artist-page {
+    .hero {
+        position: relative;
+
+        .artist-bg-overlay {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 3px;
+            left: 0;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 1;
+        }
+
+        .artist-info {
+            position: absolute;
+            width: 70%;
+            top: 15%;
+            left: 15%;
+            z-index: 2;
+            
+            .round {
+                margin-bottom: calc(15vw - 1.8em);
+            }
+
+            button[outline] {
+                background: $background-color;
+            }
+        }
+    }
+
+    .custom-card {
+        position: relative;
+        display: inline-block;
+        width: calc(50vw - 24px); // refactor for other devices besides ios
+
+        ion-card-content {
+            padding: 10px;
+
+            ion-card-title {
+                font-size: 1.6rem;
+                padding: 4px 0px;
+            }
+        }
+    }
+}

@@ -4,9 +4,14 @@ import { NavController, NavParams } from 'ionic-angular';
 
 import { DataService } from '../../../services/data.service';
 import { AudioService } from '../../../services/audio.service';
+import { UserService } from '../../../services/user.service';
 import { Artist } from '../../../objects/artist';
 import { Mixtape } from '../../../objects/mixtape';
 import { Song } from '../../../objects/song';
+import { User } from '../../../objects/user';
+import { MixtapePage } from '../../../pages/mixtapes/mixtape/mixtape';
+
+import _ from 'lodash';
 
 @Component({
     selector: 'artist-page',
@@ -18,17 +23,40 @@ export class ArtistPage {
     mixtapes: Mixtape[] = [];
     hasSongs: boolean = false;
     hasMixtapes: boolean = false;
+    user: User;
+    isFollowing: boolean = null;
 
     constructor(public navController: NavController, 
+                private userService: UserService,
                 private navParams: NavParams, 
                 private dataService: DataService, 
                 private audioService: AudioService) {
         this.artist = navParams.get('artist');
+        this.user = this.userService.getUser();
     }
 
     ngOnInit() {
+        this.checkIfFollowing();
         this.getSongs();
         this.getMixtapes();
+    }
+
+    ionViewDidEnter() {
+        this.checkIfFollowing();
+    }
+
+    checkIfFollowing() {
+        this.isFollowing = this.user.following.indexOf(this.artist.id) > -1;
+    }
+
+    follow() {
+        this.user.following.push(this.artist.id);
+        this.isFollowing = true;
+    }
+
+    unfollow() {
+        _.pull(this.user.following, this.artist.id);
+        this.isFollowing = false;
     }
 
     getSongs() {
@@ -58,5 +86,11 @@ export class ArtistPage {
         if (this.mixtapes.length > 0) {
             this.hasMixtapes = true;
         }
+    }
+
+    onNavigateToMixtape(_mixtape: Mixtape) {
+        this.navController.push(MixtapePage, {
+            mixtape: _mixtape
+        });
     }
 }

@@ -1,7 +1,13 @@
 mixtape-page {
-    p {
-        font-size: 16px;
-        font-weight: bold;
+    .artist-item {
+        .item-inner {
+            border-bottom: none !important;
+        }
+
+        div {
+            font-size: 16px;
+            font-weight: bold;
+        }
     }
 
     audio {

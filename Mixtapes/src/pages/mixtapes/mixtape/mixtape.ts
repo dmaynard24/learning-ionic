@@ -5,7 +5,10 @@ import { NavController, NavParams } from 'ionic-angular';
 import { DataService } from '../../../services/data.service';
 import { AudioService } from '../../../services/audio.service';
 import { Mixtape } from '../../../objects/mixtape';
+import { Artist } from '../../../objects/artist';
 import { Song } from '../../../objects/song';
+
+import moment from 'moment';
 
 @Component({
     selector: 'mixtape-page',
@@ -13,6 +16,8 @@ import { Song } from '../../../objects/song';
 })
 export class MixtapePage {
     mixtape: Mixtape;
+    artist: Artist;
+    hasArtist: boolean = false;
     songs: Song[] = [];
     hasSongs: boolean = false;
 
@@ -24,7 +29,13 @@ export class MixtapePage {
     }
 
     ngOnInit() {
+        this.setMixtapeArtist();
         this.getSongs();
+    }
+
+    setMixtapeArtist() {
+        this.artist = this.dataService.getArtist(this.mixtape.artistId);
+        this.hasArtist = true;
     }
 
     getSongs() {
@@ -46,25 +57,7 @@ export class MixtapePage {
         return this.dataService.getArtist(_artistId).name;
     }
 
-    // togglePlay(index: number) {
-    //     this.songs.forEach((song, i) => {
-    //         // found song that's playing, if there is one
-    //         if (song.isPlaying && i !== index) {
-    //             let audioToPause = <HTMLAudioElement>(document.getElementById(i.toString())); // get the playing element
-    //             audioToPause.pause(); // pause the playing song
-    //             song.isPlaying = false;
-    //         }
-    //         // found the song that was clicked
-    //         if (i === index) {
-    //             let clickedAudio = <HTMLAudioElement>(document.getElementById(i.toString())); // get the clicked element
-    //             if (song.isPlaying) {
-    //                 clickedAudio.pause(); // pause the clicked song
-    //             } else {
-    //                 clickedAudio.currentTime = 0; // reset the song back to the beginning
-    //                 clickedAudio.play(); // play the clicked song
-    //             }
-    //             song.isPlaying = !song.isPlaying;
-    //         }
-    //     });
-    // }
+    getLegibleDate(_date: Date) {
+        return moment(_date).format('MMMM D, YYYY');
+    }
 }

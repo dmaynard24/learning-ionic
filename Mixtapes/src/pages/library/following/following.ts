@@ -6,6 +6,7 @@ import { UserService } from '../../../services/user.service';
 import { DataService } from '../../../services/data.service';
 import { User } from '../../../objects/user';
 import { Artist } from '../../../objects/artist';
+import { ArtistPage } from '../../../pages/artists/artist/artist';
 
 @Component({
     selector: 'following-page',
@@ -27,6 +28,18 @@ export class FollowingPage {
     }
 
     ngOnInit() {
+        this.getFollowedArtists();
+    }
+
+    ionViewDidEnter() {
+        if (this.user.following.length < 1) {
+            this.navController.pop();
+        } else {
+            this.getFollowedArtists();
+        }
+    }
+
+    getFollowedArtists() {
         this.allArtists = _.cloneDeep(this.dataService.getArtists());
         let notFollowed: Artist[] = [];
         this.allArtists.forEach((artist, i) => {
@@ -55,5 +68,11 @@ export class FollowingPage {
                 return (artist.name.toLowerCase().indexOf(input.toLowerCase()) > -1);
             });
         }
+    }
+
+    onNavigateToArtist(_artist: Artist) {
+        this.navController.push(ArtistPage, {
+            artist: _artist
+        });
     }
 }

@@ -44,9 +44,9 @@ export class DataService {
         this.setArtistImages();
 
         // Mixtapes data
-        let tape0 = new Mixtape('1', 'Cabin Fever', '13');
-        let tape1 = new Mixtape('2', 'Kush & OJ', '13');
-        let tape2 = new Mixtape('3', 'Taylor Allderdice', '13');
+        let tape0 = new Mixtape('1', 'Cabin Fever', '13', new Date('February 17, 2011'));
+        let tape1 = new Mixtape('2', 'Kush & OJ', '13', new Date('April 14, 2010'));
+        let tape2 = new Mixtape('3', 'Taylor Allderdice', '13', new Date('March 13, 2012'));
         this.mixtapes.push(tape0);
         this.mixtapes.push(tape1);
         this.mixtapes.push(tape2);

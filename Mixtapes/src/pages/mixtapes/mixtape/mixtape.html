@@ -6,8 +6,13 @@
 
 <ion-content>
     <img src="{{ mixtape.artwork }}" />
-    <!--<img src="{{mixtape.artwork}}" />-->
-    <p padding>{{ getArtistName(mixtape.artistId) }}</p>
+    <ion-item class="artist-item drop-shadow">
+        <ion-avatar item-left>
+            <img class="round" src="{{ artist.image }}" />
+        </ion-avatar>
+        <div>{{ getArtistName(mixtape.artistId) }}</div>
+        <p>{{ getLegibleDate(mixtape.releaseDate) }}</p>
+    </ion-item>
     <ion-list id="song-list">
         <ion-item *ngFor="let song of songs; let i = index" (click)="playSong(song)">
             <!--<audio id="{{i}}" preload="auto" volume="0.5">-->
