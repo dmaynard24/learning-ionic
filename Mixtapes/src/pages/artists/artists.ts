@@ -24,8 +24,10 @@ export class ArtistsPage {
     }
 
     initializeArtists() {
-        this.artists = this.dataService.getArtists();
-        this.hasArtists = true;
+        this.dataService.getArtists().then((data) => {
+            this.artists = data;
+            this.hasArtists = true;
+        });
     }
 
     getItems(event: any) {

@@ -40,18 +40,21 @@ export class FollowingPage {
     }
 
     getFollowedArtists() {
-        this.allArtists = _.cloneDeep(this.dataService.getArtists());
-        let notFollowed: Artist[] = [];
-        this.allArtists.forEach((artist, i) => {
-            if (_.indexOf(this.user.following, artist.id) < 0) {
-                notFollowed.push(artist);
-            }
+        this.dataService.getArtists().then((data) => {
+            this.allArtists = data;
+
+            let notFollowed: Artist[] = [];
+            this.allArtists.forEach((artist, i) => {
+                if (_.indexOf(this.user.following, artist.id) < 0) {
+                    notFollowed.push(artist);
+                }
+            });
+
+            _.pullAll(this.allArtists, notFollowed);
+            this.initializeArtists();
+
+            this.hasArtists = true;
         });
-
-        _.pullAll(this.allArtists, notFollowed);
-        this.initializeArtists();
-
-        this.hasArtists = true;
     }
 
     initializeArtists() {

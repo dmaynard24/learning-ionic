@@ -1,6 +1,6 @@
 export class Artist {
     // required
-    id: string;
+    id: any;
     name: string;
 
     // optional
