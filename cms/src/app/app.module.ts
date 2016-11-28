@@ -6,11 +6,12 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
-import { ArtistsComponent } from './artists/artists.component';
-import { MixtapesComponent } from './mixtapes/mixtapes.component';
-import { SongsComponent } from './songs/songs.component';
-import { UsersComponent } from './users/users.component';
-import { HomeComponent } from './home/home.component';
+import { ArtistsComponent } from './pages/artists/artists.component';
+import { MixtapesComponent } from './pages/mixtapes/mixtapes.component';
+import { SongsComponent } from './pages/songs/songs.component';
+import { UsersComponent } from './pages/users/users.component';
+import { HomeComponent } from './pages/home/home.component';
+import { SettingsComponent } from './pages/settings/settings.component';
 
 const appRoutes: Routes = [
     { path: 'artists', component: ArtistsComponent },
@@ -18,6 +19,7 @@ const appRoutes: Routes = [
     { path: 'songs', component: SongsComponent },
     { path: 'users', component: UsersComponent },
     { path: 'home', component: HomeComponent },
+    { path: 'settings', component: SettingsComponent },
     { path: '**', redirectTo: 'home', pathMatch: 'full' }
 ];
 
@@ -28,7 +30,8 @@ const appRoutes: Routes = [
         MixtapesComponent,
         SongsComponent,
         UsersComponent,
-        HomeComponent
+        HomeComponent,
+        SettingsComponent
     ],
     imports: [
         BrowserModule,
